@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>About Me</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+    body {
+    font-family: 'Nunito', sans-serif;
+    color: rgba(14, 1, 1, 0.877) ;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 251, 201);
+        background-size: 200px;
+    background-position: center;
+}
+
+
+.content {
+    text-align: center;
+}
+
+section {
+    padding: 30px 30px 30px;
+  }
+  header #container {
+    padding: 25px 5px 0px;
+  }
+    #name {
+      font-size: 1.35em;
+      letter-spacing: 0.1em;
+      font-family: 'Nunito', sans-serif;
+      color: black;
+    }
+    #nav {
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      flex-shrink:0;
+      flex-wrap:wrap;
+      width: 95%;
+      margin: 0 auto 0;
+      margin-right: 0 auto;
+      font-weight: bold;
+      line-height: 1.5em;
+      padding-top: .35em;
+      padding-bottom: .35em;
+      font-size: 1.2em;
+      max-width: 500px;
+    }
+    .nav-option{
+      display: block;
+            color: black;   
+            margin: 10px;   
+    }
+    #footer {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    background-color: rgb(224, 137, 241);
+
+}
+
+.social-icons a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+.social-icons a i {
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #007bff; 
+}
+#skillsChart {
+      width: 50px;
+      height: 50px; 
+    }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div id="container">
+            <a href="index.html">
+          <span id="name">Sisam Khadka</span></a>
+          <ul id="nav">
+            <a href="index.html">
+              <li id="nav-about" class="nav-option">Portfolio</li>
+            </a>
+            <a href="resume.html">
+              <li id="nav-portfolio" class="nav-option">My Resume</li>
+            </a>
+            <a href="contact.html">
+              <li id="nav-Contact" class="nav-option">Contact Me</li>
+            </a>
+          </ul>
+          </container>
+
+    </header>
+    <section class="about-me">
+      <h2>Introduction</h2>
+      <p>Hey there, my name is Sisam Khadka. I am a Computer Science student from Nepal, currently pursuing my degree online. I am learning cybersecurity and have knowledge in web development/designs. My hobbies include cooking, music, reading books, and coding.</p>
+  </section>
+  <section class="skills">
+    <h2>Skills</h2>
+    <div style="width: 600px; height: 600px">
+      <canvas id="skillsChart" width="300" height="300"></canvas>
+    </div>
+    <script>
+      const data = {
+        labels: ['Python', 'ReactJS', 'TypeScript', 'HTML', 'CSS', 'Java'],
+        datasets: [{
+          label: 'Skill Level',
+          data: [40, 30, 10, 5, 5, 5],
+          backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#4BC0C0',
+            '#9966FF',
+            '#FF9F40'
+          ],
+          hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#4BC0C0',
+            '#9966FF',
+            '#FF9F40'
+          ]
+        }]
+      };
+  
+      const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false, 
+          animation: {
+            animateRotate: true,
+            animateScale: true
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom'
+            },
+            title: {
+              display: true,
+              text: 'My Skills on Programming Languages',
+              font: {
+                size: 16,
+                family: 'Nunito',
+                weight: 'bold'
+              },
+              color: '#333'
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  let label = context.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  label += Math.round(context.parsed * 100) + '%';
+                  return label;
+                }
+              }
+            }
+          }
+        }
+      };
+  
+      document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, config);
+      });
+    </script>    
+  </section>
+      
+
+
+  <section class="studies">
+    <h2>Studies</h2>
+    <p>I am currently completing courses on various topics:</p>
+    <ul>
+        <li>Google IT Support Professional Certificate</li>
+        <li>Back-end Development Course by Meta</li>
+        <li>Cybersecurity by Cisco Networking Academy</li>
+    </ul>
+</section>
+
+
+
+
+
+
+<footer id="footer">
+    <p>Connect with me:</p>
+    <div class="social-icons">
+        <a href="https://github.com/SisamK"><i class="fab fa-github"><img src="/img/insta1.png" alt="Instagram">
+        </i></a>
+        <a href="https://linkedin.com/in/SisamKhadka"><i class="fab fa-linkedin"><img src="/img/linkedin1.png" alt="LinkedIn">
+        </i></a>
+        <a href="https://instagram.com/kssm_8"><i class="fab fa-instagram"><img src="/img/github1.png" alt="GitHub">
+        </i></a>
+    </div>
+    <p>Thank you for visiting! 😊
+        By Sisam Khadka
+    </p>
+</footer>
+    <script src="ts/script.ts"></script> 
+</body>
+</html>
